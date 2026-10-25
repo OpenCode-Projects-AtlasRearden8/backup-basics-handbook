@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formats That Last: Copying Documents So They Open in Ten Years — The Backup Basics Handbook</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="site-nav"><ul><li><a href="index.html">Home</a></li><li><a href="01-what-needs-backing-up.html">What to back up</a></li><li><a href="02-the-3-2-1-rule.html">3-2-1 rule</a></li><li><a href="03-external-drive-routines.html">Drive routines</a></li><li><a href="04-free-cloud-vs-local.html">Cloud vs local</a></li><li><a href="05-phone-photo-backups.html">Phone photos</a></li><li><a href="06-formats-that-last.html" class="here">Formats that last</a></li><li><a href="07-restore-drills.html">Restore drills</a></li><li><a href="08-after-a-crash.html">After a crash</a></li><li><a href="worksheet.html">Worksheet</a></li><li><a href="glossary.html">Glossary</a></li><li><a href="recipes/index.html">Recipes</a></li><li><a href="recipes/recipe-01-first-copy.html">Recipe 1 - First copy</a></li><li><a href="recipes/recipe-02-restore-drill.html">Recipe 2 - Restore drill</a></li><li><a href="recipes/recipe-03-auto-backup.html">Recipe 3 - Auto backups</a></li><li><a href="recipes/recipe-04-cloud-folder.html">Recipe 4 - Cloud folder</a></li><li><a href="recipes/recipe-05-yearly-archive-check.html">Recipe 5 - Yearly check</a></li></ul></nav>
+<main class="page">
+<h1 class="page-title">Formats That Last: Copying Documents So They Open in Ten Years</h1>
+
+<p>Backups protect files from <em>disappearing</em>. This chapter protects them from something sneakier: the file surviving fine, but nothing on Earth opening it. Formats rot slower than drives, but they do rot — old apps, old versions, old locks. Here's the ten-year-survival kit, and most of it is about <em>which</em> file types you keep and <em>how</em> you name and copy them.</p>
+<h2>The friendly rule for formats</h2>
+<p><strong>Keep the "speakable" versions — files that many different apps can open — and keep the fancy version alongside them, behind them, when you have one.</strong></p>
+<p>Formats that are easy to open basically forever:</p>
+<p>| Kind of thing | Keep this | Why it lasts | | --- | --- | --- | | Documents meant to be <em>read</em> (leases, agreements, receipts, letters) | <strong>PDF</strong> (or PDF/A when offered) | Every device since 1993 opens it; looks the same everywhere | | Plain writing, notes, journal, the novel's outline | <strong>.txt or .md</strong> (plain text / Markdown) | Text is text; apps come and go, letters stay letters | | Essays/resumes you'll <em>edit</em> later | Your editor's format <strong>plus</strong> a PDF copy | The PDF is the ten-year copy; the original is the editing copy | | Photos and scans | <strong>JPEG/JPG</strong> and <strong>PNG</strong> | Universal; JPEG for camera photos, PNG for graphics/screenshots | | Spreadsheets that only need to be looked at | <strong>CSV</strong> alongside the spreadsheet | CSV is plain text; any tool reads it in 2050 | | Tax/money records | <strong>PDF</strong> of the return + CSV export of the data | One is for reading, one survives the software apocalypse |</p>
+<p>Formats that rot faster (keep them, but never as the <em>only</em> copy):</p>
+<ul><li>Anything saved by abandoned software — old graphic-designer files,</li></ul>
+<p>ancient bookkeeping-app files, the label-maker's data.</p>
+<ul><li>Formats unique to one company's app, where the app itself needed to render</li></ul>
+<p>them correctly.</p>
+<ul><li>Anything with <strong>DRM</strong> (digital locks) — the store can take the key back.</li></ul>
+<p>That's not a backup; that's a lease.</p>
+<h2>The two-copy trick for anything you must keep <em>editable</em></h2>
+<p>Keep both, always, with clear names:</p>
+<pre><code>resume-2026.docx          ← the living, editing copy
+resume-2026.pdf           ← the will-still-open-in-2036 copy</code></pre>
+<p>Same rule for scanned paperwork: if your scanner/phone app produced a PDF, lovely — but if it produced some app-private format, export to PDF before it goes in the archive.</p>
+<h2>Naming: dates that sort themselves</h2>
+<p>Ten years from now, "Scanned Document (3).pdf" tells you nothing. The friend-style naming pattern:</p>
+<pre><code>YYYY-MM-DD-what-it-is.pdf
+2026-10-25-apartment-lease.pdf
+2025-04-02-car-insurance-policy.pdf</code></pre>
+<p>This sorts perfectly so the file openers, file finders, and <em>you in ten years</em> all agree what happened when. Also — your future self will be searching for the words, so put the words in the name: "lease," "insurance," "taxes." Never "Doc1," never "final_FINAL_v2(real)".</p>
+<h2>Structure: copy folders, not loose files</h2>
+<p>A file often doesn't make sense alone (the spreadsheet is fine, but the spreadsheet + the PDF its cells point at + the "read me" note explaining the columns = the <em>real</em> document). When you back up paperwork, copy the whole folder. Follow this shape if it helps:</p>
+<pre><code>Papers/
+  2026/
+    2026-10-25-lease.pdf
+    2026-11-01-insurance.pdf
+  taxes/
+    2025/
+      ...</code></pre>
+<p>Year folders, date-named files inside. Nothing clever. Your future self, or a relative helping you in an emergency, can walk in and read it with zero tools.</p>
+<h2>The once-a-year open test</h2>
+<p>Remember the chapter promise: "they open in ten years." Here's the test — once a year (bakery-cake day? Valentine's? pick an easy-to-remember date):</p>
+<ol><li>Open your archive — the drive, the cloud folder both.</li><li>Open three files at random: a PDF, the oldest file there, and one</li></ol>
+<p>spreadsheet/CSV.</p>
+<ol><li>If all three open on your <em>current</em> computer: archive healthy.</li><li>Also check: nothing you can't read the name of. Fix weird names while</li></ol>
+<p>you're there.</p>
+<p>If something doesn't open: that's <em>exactly</em> why you kept the plain version next to the fancy one (the PDF beside the editor file). Open the plain version, mark the fancy one as retired, and feel pleasantly smug.</p>
+<h2>Two more ten-year traps</h2>
+<ul><li><strong>Password-protected / locked PDFs</strong>: fine to have, but *record where the</li></ul>
+<p>password lives* — with the file's location noted on your worksheet and in your password manager. A perfect backup you can't unlock is a locked box in a burned house. (Password goes in the manager, never in the filename.)</p>
+<ul><li><strong>Optical discs and "special" media</strong>: CDs/DVDs from 2008 and camera-SIM</li></ul>
+<p>cards and devices with proprietary connectors should all be <strong>migrated</strong> — copied to modern drives/files — during one of your yearly reviews. Modern formats live on modern media.</p>
+<h2>Do this today</h2>
+<ol><li>Pick your top-five most important documents.</li><li>Make sure each has a PDF (or CSV/txt) version — export if not. Name it</li></ol>
+<p>with the date pattern.</p>
+<ol><li>Drop them in the treasure folder that your weekly recipe already backs</li></ol>
+<p>up. That's paperwork insurance for the price of ten minutes.</p>
+<div class="pager"><a class="pager-link" href="05-phone-photo-backups.html">&larr; Phone photos</a><a class="pager-link pager-next" href="07-restore-drills.html">Restore drills &rarr;</a></div>
+</main>
+<footer class="site-footer">
+<p>The Backup Basics Handbook &middot; built by <strong>Asdale Dynamics, LLC</strong> &middot; MIT licensed &middot; works offline</p>
+</footer>
+</body>
+</html>

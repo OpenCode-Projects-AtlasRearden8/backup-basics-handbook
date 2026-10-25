@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe 2 — Prove You Can Restore — The Backup Basics Handbook</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="site-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../01-what-needs-backing-up.html">What to back up</a></li><li><a href="../02-the-3-2-1-rule.html">3-2-1 rule</a></li><li><a href="../03-external-drive-routines.html">Drive routines</a></li><li><a href="../04-free-cloud-vs-local.html">Cloud vs local</a></li><li><a href="../05-phone-photo-backups.html">Phone photos</a></li><li><a href="../06-formats-that-last.html">Formats that last</a></li><li><a href="../07-restore-drills.html">Restore drills</a></li><li><a href="../08-after-a-crash.html">After a crash</a></li><li><a href="../worksheet.html">Worksheet</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../recipes/index.html">Recipes</a></li><li><a href="../recipes/recipe-01-first-copy.html">Recipe 1 - First copy</a></li><li><a href="../recipes/recipe-02-restore-drill.html" class="here">Recipe 2 - Restore drill</a></li><li><a href="../recipes/recipe-03-auto-backup.html">Recipe 3 - Auto backups</a></li><li><a href="../recipes/recipe-04-cloud-folder.html">Recipe 4 - Cloud folder</a></li><li><a href="../recipes/recipe-05-yearly-archive-check.html">Recipe 5 - Yearly check</a></li></ul></nav>
+<main class="page">
+<h1 class="page-title">Recipe 2 — Prove You Can Restore</h1>
+
+<p><strong>Goal:</strong> run a real restore drill, then log it on the worksheet. The one recipe that makes all the others worth it.</p>
+<p><strong>You need:</strong> your backup copy (drive or cloud) and 15 minutes. Nothing can be lost here — we make a safety copy of the victim before touching it.</p>
+<h2>The drill (click version, any OS)</h2>
+<ol><li>Choose a real file from your treasure folder — say, <code>2026-05-01-lease.pdf</code>.</li><li><strong>Safety first:</strong> copy that file to your Desktop or a temp folder. This</li></ol>
+<p>copy means the drill literally cannot destroy anything.</p>
+<ol><li>Delete the file from its home. (Round two: empty the trash, too.)</li><li>Open your backup — the drive, or the cloud folder on a <em>different device</em></li></ol>
+<p>if it's cloud.</p>
+<ol><li>Find the file in backup and copy it back to its home folder.</li><li><strong>Open it.</strong> All the way, not just the icon. The point is a working file,</li></ol>
+<p>not a smug file.</p>
+<ol><li>Write a line in the worksheet's drill log: date, what, from where,</li></ol>
+<p>"opened: yes."</p>
+<p>That's the whole drill. Here's the same thing in shell commands, if you like seeing the machinery.</p>
+<h2>The drill (command version — Linux / macOS)</h2>
+<p><strong>Tested:</strong> every command in this section was run on Linux as written, with the checksum step confirming the restored file matched the original byte for byte.</p>
+<pre class="lang-sh"><code># 1. make a victim and the daily "work" it belongs to
+mkdir -p ~/drill-demo/treasures
+echo "the trilogy draft" &gt; ~/drill-demo/treasures/trilogy-draft.txt
+
+# 2. back it up (the recipe-1 pattern, tiny edition)
+mkdir -p /tmp/drill-drive/Backups/treasures
+cp -aut /tmp/drill-drive/Backups/treasures/ ~/drill-demo/treasures/.
+
+# 3. copy the victim to a safe temp spot, then delete the original
+cp ~/drill-demo/treasures/trilogy-draft.txt /tmp/trilogy-safe.txt
+rm ~/drill-demo/treasures/trilogy-draft.txt
+
+# 4. confirm the loss is real
+ls ~/drill-demo/treasures/          # empty, and that's allowed to sting
+
+# 5. restore from backup
+cp -aut ~/drill-demo/treasures/ /tmp/drill-drive/Backups/treasures/.
+
+# 6. verify: byte-for-byte identical?
+cksum /tmp/trilogy-safe.txt ~/drill-demo/treasures/trilogy-draft.txt
+#   on macOS use: shasum -a 256 both-files</code></pre>
+<p><code>cksum</code> prints a fingerprint for each file; the two numbers matching means the restored copy is exactly the file you lost. Numbers differ? Then the backup copy wasn't what you thought — go one level back (is it copying at all? did the "drive" folder get deleted?) and be glad you found out on drill day.</p>
+<h2>For phone-photos people</h2>
+<p>Quarterly, twice at most while you're new: open the photo site on your computer, search a specific memory, and <strong>download one photo</strong>. Optionally save it to your dated photos folder. Log it. (The feelings version is explained in chapter 7.)</p>
+<h2>Check your work</h2>
+<ul><li class="check"><span class="box"></span>File was deleted from home folder</li><li class="check"><span class="box"></span>File was restored from backup (drive or cloud)</li><li class="check"><span class="box"></span>File opened, and its checksum/screening matched (commands or your own squint)</li><li class="check"><span class="box"></span>Drill log got a row</li></ul>
+<h2>If something's off</h2>
+<ul><li><strong>File isn't in the backup at all</strong> → your backup missed it. Check which</li></ul>
+<p>folders your recipe/app actually copies — this discovery is the drill earning its entire annual salary.</p>
+<ul><li><strong>Restore copy won't open</strong> → see chapter 6: is a PDF/plain copy sitting</li></ul>
+<p>next to it? If all copies of that file are in one rotting format, that file just taught you the lesson of chapter 6 for free.</p>
+<ul><li><strong>The "drive" turned out to be junk</strong> → good thing it was a drill. Say</li></ul>
+<p>something kind about the drive's service, buy a new one, re-run recipe 1.</p>
+<div class="pager"><a class="pager-link" href="../recipes/recipe-01-first-copy.html">&larr; Recipe 1 - First copy</a><a class="pager-link pager-next" href="../recipes/recipe-03-auto-backup.html">Recipe 3 - Auto backups &rarr;</a></div>
+</main>
+<footer class="site-footer">
+<p>The Backup Basics Handbook &middot; built by <strong>Asdale Dynamics, LLC</strong> &middot; MIT licensed &middot; works offline</p>
+</footer>
+</body>
+</html>

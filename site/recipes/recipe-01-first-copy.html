@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe 1 — Make Your First Real Copy — The Backup Basics Handbook</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="site-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../01-what-needs-backing-up.html">What to back up</a></li><li><a href="../02-the-3-2-1-rule.html">3-2-1 rule</a></li><li><a href="../03-external-drive-routines.html">Drive routines</a></li><li><a href="../04-free-cloud-vs-local.html">Cloud vs local</a></li><li><a href="../05-phone-photo-backups.html">Phone photos</a></li><li><a href="../06-formats-that-last.html">Formats that last</a></li><li><a href="../07-restore-drills.html">Restore drills</a></li><li><a href="../08-after-a-crash.html">After a crash</a></li><li><a href="../worksheet.html">Worksheet</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../recipes/index.html">Recipes</a></li><li><a href="../recipes/recipe-01-first-copy.html" class="here">Recipe 1 - First copy</a></li><li><a href="../recipes/recipe-02-restore-drill.html">Recipe 2 - Restore drill</a></li><li><a href="../recipes/recipe-03-auto-backup.html">Recipe 3 - Auto backups</a></li><li><a href="../recipes/recipe-04-cloud-folder.html">Recipe 4 - Cloud folder</a></li><li><a href="../recipes/recipe-05-yearly-archive-check.html">Recipe 5 - Yearly check</a></li></ul></nav>
+<main class="page">
+<h1 class="page-title">Recipe 1 — Make Your First Real Copy</h1>
+
+<p><strong>Goal:</strong> the treasure folder ends up on an external drive, verified. <strong>You need:</strong> your computer, an external drive with room to spare, 10–20 minutes. The drive should already be formatted and have a <code>Backups</code> folder (chapter 3's ten-minute setup).</p>
+<h2>Option A — by dragging (any operating system)</h2>
+<ol><li>Plug the drive in. Open it so you can see the <code>Backups</code> folder.</li><li>Open your treasure folder in another window.</li><li>Select everything in it and <strong>copy</strong> (right-click → Copy; Ctrl/Cmd-C),</li></ol>
+<p>then paste into <code>Backups</code>. Copy, never move — cut is how treasures become fugitives.</p>
+<ol><li>First time: wait it out, all of it, progress bar honorably watched.</li></ol>
+<p>Later runs only copy what changed, so this gets faster.</p>
+<blockquote><p><strong>Windows tip:</strong> use <strong>Copy</strong>, not "Send to," so you can paste into the folder of your choosing.</p></blockquote>
+<h2>Option B — one reliable command (Linux)</h2>
+<p>In a terminal, replacing the paths with yours:</p>
+<pre class="lang-sh"><code>cp -aut /media/YOURDRIVE/Backups/treasures/ \
+        ~/Documents/my-treasures/.</code></pre>
+<ul><li><code>cp</code> — the file-copying command that ships with every Linux system; no</li></ul>
+<p>installing anything.</p>
+<ul><li><code>-a</code> — copies faithfully, keeping dates and folder structure.</li><li><code>-t</code> — "target": copy <em>into</em> the destination you name.</li><li><code>-u</code> — only copies files that are new or changed, so re-running this</li></ul>
+<p>next week takes seconds.</p>
+<ul><li>The <code>/.</code> means "the contents of that folder," not the folder itself.</li><li>The destination folder must already exist (your ten-minute setup in</li></ul>
+<p>chapter 3 made it) — otherwise start with <code>mkdir -p /media/YOURDRIVE/Backups/treasures</code>.</p>
+<p><strong>macOS variation:</strong> <code>ditto ~/Documents/my-treasures /media/YOURDRIVE/Backups/treasures</code> (native, keeps everything faithfully), or the plain drag version above.</p>
+<h2>Option C — Windows classic, one command</h2>
+<p>In Command Prompt (press Start, type <code>cmd</code>):</p>
+<pre class="lang-bat"><code>robocopy "C:\Users\you\Documents\my-treasures" "E:\Backups\treasures" /E /XJ /FFT /DCOPY:T</code></pre>
+<p><code>/E</code> copies folders-within-folders, <code>/XJ</code> politely skips system pseudo- links, and the rest keeps timestamps tidy. Re-run the same line weekly; robocopy also only copies what changed.</p>
+<p><strong>Tested:</strong> option B's exact command (with a stand-in drive folder) was run end to end in this handbook's test shell — first copy, re-run, and file counts all checked out — and the same harness proves the restore drill in recipe 2. Option A's clicks and option C's one-liner follow each system's own documentation; menu names drift, commands don't.</p>
+<h2>Check your work</h2>
+<ol><li>On the drive, open the copied folder — files are there, dates look right.</li><li>Spot-check: open one photo and one document <strong>from the drive</strong> and see</li></ol>
+<p>they open fine.</p>
+<ol><li>Compare counts (rough is fine): same-ish number of items in both</li></ol>
+<p>folders.</p>
+<ol><li>Write the date on the drive's masking tape.</li></ol>
+<h2>If something's off</h2>
+<ul><li><strong>"No space left"</strong> → drive too small for the treasure; get a bigger</li></ul>
+<p>drive, or archive last year's dated folders to a second drive.</p>
+<ul><li><strong>Copy fails partway / drive vanishes mid-copy</strong> → different cable/port</li></ul>
+<p>first; if it insists, treat the drive as unreliable (chapter 3).</p>
+<ul><li><strong>"Access denied" on some files</strong> → don't chase it tonight; note which</li></ul>
+<p>folder misbehaved and check tomorrow with a fresh boot.</p>
+<hr>
+<p><em>Next: recipe 2, where we delete one of these on purpose, just to prove we can get it back. That's where backups become backups.</em></p>
+<div class="pager"><a class="pager-link" href="../recipes/index.html">&larr; Recipes</a><a class="pager-link pager-next" href="../recipes/recipe-02-restore-drill.html">Recipe 2 - Restore drill &rarr;</a></div>
+</main>
+<footer class="site-footer">
+<p>The Backup Basics Handbook &middot; built by <strong>Asdale Dynamics, LLC</strong> &middot; MIT licensed &middot; works offline</p>
+</footer>
+</body>
+</html>

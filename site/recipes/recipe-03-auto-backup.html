@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe 3 — Turn On Automatic Backups — The Backup Basics Handbook</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="site-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../01-what-needs-backing-up.html">What to back up</a></li><li><a href="../02-the-3-2-1-rule.html">3-2-1 rule</a></li><li><a href="../03-external-drive-routines.html">Drive routines</a></li><li><a href="../04-free-cloud-vs-local.html">Cloud vs local</a></li><li><a href="../05-phone-photo-backups.html">Phone photos</a></li><li><a href="../06-formats-that-last.html">Formats that last</a></li><li><a href="../07-restore-drills.html">Restore drills</a></li><li><a href="../08-after-a-crash.html">After a crash</a></li><li><a href="../worksheet.html">Worksheet</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../recipes/index.html">Recipes</a></li><li><a href="../recipes/recipe-01-first-copy.html">Recipe 1 - First copy</a></li><li><a href="../recipes/recipe-02-restore-drill.html">Recipe 2 - Restore drill</a></li><li><a href="../recipes/recipe-03-auto-backup.html" class="here">Recipe 3 - Auto backups</a></li><li><a href="../recipes/recipe-04-cloud-folder.html">Recipe 4 - Cloud folder</a></li><li><a href="../recipes/recipe-05-yearly-archive-check.html">Recipe 5 - Yearly check</a></li></ul></nav>
+<main class="page">
+<h1 class="page-title">Recipe 3 — Turn On Automatic Backups</h1>
+
+<p><strong>Goal:</strong> your operating system quietly making copy #2 for you, forever. <strong>You need:</strong> your computer and an external drive. Ten minutes.</p>
+<p>This is the "set it once and stop thinking about it" option — your OS's built-in backup tool keeps versioned backups on an always-plugged-in drive (accidentally deleted a file last Thursday? Tuesday's copy is right there).</p>
+<h2>macOS — Time Machine</h2>
+<ol><li>Plug the drive in.</li><li>Apple menu → <strong>System Settings</strong> → <strong>General</strong> → <strong>Time Machine</strong>.</li><li><strong>Add Backup Disk</strong>, pick your drive, switch backups on.</li><li>Optional but friendly: exclude folders you don't need backed up (Options</li></ol>
+<p>→ Exclude), so the drive stays lean.</p>
+<ol><li>First backup runs for a while (it's copying your whole life, be kind).</li></ol>
+<p>Later ones happen hourly, in the background, for about an hour after each time you plug in.</p>
+<p><strong>Check your work:</strong> the Time Machine settings page shows the latest backup's time and size growing. Also try it once: click the Time Machine icon → "Enter Time Machine" → flip back to yesterday → restore one file. That's a drill done for free.</p>
+<h2>Windows — File History</h2>
+<ol><li>Plug the drive in and open <strong>Settings</strong> → search for <strong>File History</strong></li></ol>
+<p>(Control Panel's "Save backup copies of your files with File History").</p>
+<ol><li>Make sure the drive is listed, and <strong>Turn on</strong>.</li><li>Under <strong>Advanced settings</strong>, choose how often it copies (hourly is the</li></ol>
+<p>default; hourly or nightly, both are fine — the point is that it isn't off).</p>
+<ol><li>Start a first run with <strong>Run now</strong> so you can watch it work.</li></ol>
+<p><strong>Check your work:</strong> after an hour+, use <strong>Restore personal files</strong> from the same panel and flip to a previous version of a folder. See a file from Tuesday sitting there? Pass.</p>
+<h2>The friendly notes</h2>
+<ul><li>Set it and <em>forget it correctly</em>: these tools keep <strong>version history</strong></li></ul>
+<p>(the memory of past copies), which plain drag-copy doesn't — that's the mirror-vs-history idea from chapter 2, implemented for you.</p>
+<ul><li><strong>Menu names drift.</strong> System settings get reorganized as often as kitchen</li></ul>
+<p>cabinets. If names don't match, search the settings for the words "Time Machine" or "File History" — the features keep their names even when the shelves move.</p>
+<ul><li>This recipe covers copy #2 (a local, versioned copy). You still want</li></ul>
+<p>copy #3 offsite — recipe 1's rotated drive or recipe 4's cloud account.</p>
+<ul><li>Laptops on the move: these tools still work — backup runs when the</li></ul>
+<p>drive's attached; keep the drive in your <em>home</em>, not in the same bag.</p>
+<p><strong>Honest tested-note:</strong> this recipe was written from each OS's own help documentation and checked against current menus as of writing; we couldn't run Time Machine or File History on the machine this handbook was built on. If a menu name has moved, the feature hasn't.</p>
+<div class="pager"><a class="pager-link" href="../recipes/recipe-02-restore-drill.html">&larr; Recipe 2 - Restore drill</a><a class="pager-link pager-next" href="../recipes/recipe-04-cloud-folder.html">Recipe 4 - Cloud folder &rarr;</a></div>
+</main>
+<footer class="site-footer">
+<p>The Backup Basics Handbook &middot; built by <strong>Asdale Dynamics, LLC</strong> &middot; MIT licensed &middot; works offline</p>
+</footer>
+</body>
+</html>

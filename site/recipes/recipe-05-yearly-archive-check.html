@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recipe 5 — The Yearly Archive Check — The Backup Basics Handbook</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<nav class="site-nav"><ul><li><a href="../index.html">Home</a></li><li><a href="../01-what-needs-backing-up.html">What to back up</a></li><li><a href="../02-the-3-2-1-rule.html">3-2-1 rule</a></li><li><a href="../03-external-drive-routines.html">Drive routines</a></li><li><a href="../04-free-cloud-vs-local.html">Cloud vs local</a></li><li><a href="../05-phone-photo-backups.html">Phone photos</a></li><li><a href="../06-formats-that-last.html">Formats that last</a></li><li><a href="../07-restore-drills.html">Restore drills</a></li><li><a href="../08-after-a-crash.html">After a crash</a></li><li><a href="../worksheet.html">Worksheet</a></li><li><a href="../glossary.html">Glossary</a></li><li><a href="../recipes/index.html">Recipes</a></li><li><a href="../recipes/recipe-01-first-copy.html">Recipe 1 - First copy</a></li><li><a href="../recipes/recipe-02-restore-drill.html">Recipe 2 - Restore drill</a></li><li><a href="../recipes/recipe-03-auto-backup.html">Recipe 3 - Auto backups</a></li><li><a href="../recipes/recipe-04-cloud-folder.html">Recipe 4 - Cloud folder</a></li><li><a href="../recipes/recipe-05-yearly-archive-check.html" class="here">Recipe 5 - Yearly check</a></li></ul></nav>
+<main class="page">
+<h1 class="page-title">Recipe 5 — The Yearly Archive Check</h1>
+
+<p><strong>Goal:</strong> once a year, prove your whole archive still opens, fix weird names, and migrate anything in formats going stale. Thirty minutes in, decades of quiet confidence out.</p>
+<p><strong>You need:</strong> your archive (drive, cloud, or both), your current computer, and a refill of whatever beverage keeps you at the desk.</p>
+<h2>The yearly pass</h2>
+<p><strong>1. Open the archive itself.</strong> Browse the drive — is the folder structure readable? Cloud folder — does everything still say "synced"?</p>
+<p><strong>2. The open test: three files, at random.</strong></p>
+<ul><li>One <strong>PDF</strong> — opens, renders, looks right.</li><li>The <strong>oldest file</strong> in the whole archive — this is the canary. If the</li></ul>
+<p>ten-year-old text/photo opens, your formats are aging gracefully.</p>
+<ul><li>One <strong>spreadsheet/CSV or document</strong> — opens with real data, not garbage</li></ul>
+<p>characters.</p>
+<p><strong>3. Name sweep.</strong> Scroll for a minute. Anything you can't <em>exactly</em> identify from its name alone gets renamed with the date pattern (<code>YYYY-MM-DD-what-it-is.pdf</code>). Future-you writes thank-you notes.</p>
+<p><strong>4. Format migrations.</strong> Move anything living on old media — CD/DVDs, camera cards, unlabeled USB sticks — into your normal folders, in modern formats (chapter 6's table). Write "migrated the old camera-card files into the archive" on the worksheet so you know it happened.</p>
+<p><strong>5. Location sanity.</strong> Offsite copy still offsite? (Drive B still at Aunt Rosa's? Cloud account still logged in from your phone?) Twenty seconds, and this is the check that normally catches the <em>one</em> physical copy that wandered into been-lost-land.</p>
+<p><strong>6. Version hygiene.</strong> If you keep dated backup folders (<code>Backups-2024-11</code>, <code>Backups-2025-08</code>, <code>Backups-2026-10</code>), keep them until the drive is nearly full, then delete the <em>oldest</em> only. Never delete the newest. That's the whole retention policy. Officials would call it "grandfather-father-son"; you can call it "keep a few."</p>
+<h2>Check your work, mechanically</h2>
+<p>On Linux/macOS, list your archive with sizes and sanity checks:</p>
+<pre class="lang-sh"><code># what's actually in the archive, biggest things first
+du -ah /media/YOURDRIVE/Backups/  | sort -rh | head -20
+
+# every PDF and JPEG there, counted by type
+find /media/YOURDRIVE/Backups/ -type f \( -iname "*.pdf" -o -iname "*.jpg" \) | wc -l
+
+# text files that might actually be empty or corrupt (zero bytes)
+find /media/YOURDRIVE/Backups/ -type f -empty</code></pre>
+<p><strong>Tested:</strong> these three commands were run in this handbook's test shell against a built backup tree — they behave exactly as described.</p>
+<p>Zero-byte surprises (<code>-empty</code>) are rare but real; if any appear, check their twins in a newer backup folder before panicking, and copy over the healthy version.</p>
+<h2>If something's off</h2>
+<ul><li><strong>An old file won't open</strong> → find its plain twin (PDF next to the</li></ul>
+<p>fancy app file; text/.md next to the rich document). Update the alive copy, re-save, and write the lesson on the worksheet.</p>
+<ul><li><strong>Archive looks scrambled or names are hopeless</strong> → don't fix it all</li></ul>
+<p>today. Set a monthly 20-minute "archive tidying" block; four months of gentle renaming beats one heroic night.</p>
+<ul><li><strong>You found files that exist nowhere else</strong> → congratulations: the</li></ul>
+<p>yearly check just did exactly what it's for. Copy them into the treasure folder, run recipe 1, and enjoy having dodged a small tragedy on purpose.</p>
+<hr>
+<p><em>That's the last recipe. After it: give your worksheet a date, pour something nice, and go tell someone they should borrow this book.</em></p>
+<div class="pager"><a class="pager-link" href="../recipes/recipe-04-cloud-folder.html">&larr; Recipe 4 - Cloud folder</a></div>
+</main>
+<footer class="site-footer">
+<p>The Backup Basics Handbook &middot; built by <strong>Asdale Dynamics, LLC</strong> &middot; MIT licensed &middot; works offline</p>
+</footer>
+</body>
+</html>
